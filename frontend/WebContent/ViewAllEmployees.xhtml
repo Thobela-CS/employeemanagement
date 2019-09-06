@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:x="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ui="http://java.sun.com/jsf/composite">
+
+
+<h:head>
+	<title>TUT Employee Example</title>
+</h:head>
+<h:body>
+	<h2>Available Employees</h2>
+	<h:form>
+		<h:panelGrid columns="2">
+			<x:repeat var="emp" value="#{employeecontroller.getEmployeeList()}">
+				<h:outputText value="First Name: " />
+				<h:outputText value="#{emp.getName()}" />
+				<br />
+				<h:outputText value="Surname: " />
+				<h:outputText value="#{emp.getSurName()}" />
+				<br />
+				<h:outputText value="Date of birth: " />
+				<h:outputText value="#{emp.getDateOfBirth()}">
+					<f:convertDateTime pattern="dd-mm-yyyy" />
+				</h:outputText>
+				<br />
+				<br />
+			</x:repeat>
+		</h:panelGrid>
+		<br />
+		<br />
+		<h:commandButton value="Return to Home" action="index" />
+	</h:form>
+</h:body>
+</html>
